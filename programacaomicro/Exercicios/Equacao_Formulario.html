@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equação do 2º Grau</title>
+</head><body>
+<p>Calculadora de Equação do 2º Grau</p>
+<form id="form">
+<input id="field1" type="text" placeholder="Digite o valor de A: "><br>
+<input id="field2" type="text" placeholder="Digite o valor de B: "><br>
+<input id="field3" type="text" placeholder="Digite o valor de C: ">
+<Button>Calcular </Button>
+
+</form>
+
+<div id="result"></div>
+   <script>
+    function onSubmit(event) {
+      event.preventDefault()
+        var n1 = parseFloat(field1.value)
+        var n2 = parseFloat(field2.value)
+        var n3 = parseFloat(field3.value)
+        var quadradodeb = n2*n2
+        console.log(quadradodeb)
+       var delta = quadradodeb-4*n1*n3
+        console.log(delta) 
+        if (delta < 0) {
+          result.innerHTML ="Não é possível calcular pois o Delta é menor que zero."
+        return
+      }
+
+      if (delta == 0) {
+        result.innerHTML = "O Delta é zero, portando os valores de X1 e X2 serão iguais.<br>"
+        return
+      }
+            var valordebneg = n2 * (-1)
+            var delta = Math.sqrt(delta)
+            var divisor = 2 * n1
+            var resultadox1 = (valordebneg + delta) / divisor
+            var resultadox2 = (valordebneg - delta) / divisor
+
+            result.innerHTML = `
+            <ul>
+            <li>∆ = B² - 4 X A X C<br>
+            <li>∆ =  + ${quadradodeb} +  - 4 X  + ${n1} +  X  + ${n2}</li>
+            <li> <br>∆ =  + ${delta}</li>
+            <li><br>X = -B +ou- √∆ <br>__________________<br>      2 X A</li>
+            <li> <br> X =  + ${valordebneg} +  +ou-  + ${delta} + <br>____________________<br>      2 X  + ${n1}</li>
+            <li><br><br>X1 =  + ${quadradodeb} +  +  + ${delta} +  /  + ${divisor}</li>
+            <li><br>X1 =  + ${resultadox1}</li>
+            <li><br><br>X2 =  + ${quadradodeb} +  -  + ${delta} +  /  + ${divisor}</li>
+            <li><br>X2 =  + ${resultadox2}   </li>
+
+            <li><br><b>Os resultados sao</b>  ${resultadox1} e ${resultadox2}</li>
+      </ul>          
+      
+      `
+    }
+    form.addEventListener('submit', onSubmit)
+      </script>
+  </body>
+</html>

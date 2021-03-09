@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contas</title>
+</head>
+<body>
+    <p>Calculadora Basica</p>
+    <form id="form">
+    <input id="field1" type="text" placeholder="Digite o valor de A: "><br>
+    <input id="field2" type="text" placeholder="Digite o valor de B: "><br>
+
+    <Button>Calcular </Button>
+    
+    </form>
+    
+    <div id="result"></div>
+       <script>
+        function onSubmit(event) {
+          event.preventDefault()
+            var n1 = parseFloat(field1.value)
+            var n2 = parseFloat(field2.value)
+            var soma = n1+n2
+            var sub = n1-n2
+            var div = n1/n2
+            var multi = n1*n2
+            
+    
+                result.innerHTML = `
+                <ul>
+          <li>Valor da Soma: <b>${soma}</b></li>
+          <li>Valor da Subtração: <b>${sub}</b></li>
+          <li>Valor da Divisão: <b>${div}</b></li>
+          <li>Valor da Multiplicação: <b>${multi}</b></li>
+        </ul>
+          `
+        }
+        form.addEventListener('submit', onSubmit)
+          </script>
+      </body>
+    </html>

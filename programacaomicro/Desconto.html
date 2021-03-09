@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descontos</title>
+
+</head>
+
+<body>
+    <p>Calculadora de Descontos</p>
+    <form id="form">
+        <input type="text" id="n1" placeholder="Digite o preço do produto"><br>
+        <input type="text" id="n2" placeholder="Digite o desconto do produto"><br>
+        <button>Calcular</button>
+    </form>
+
+    <div id="result"></div>
+
+  <script>
+      function onSubmit(event) {
+        event.preventDefault()
+
+    var preco = parseFloat(n1.value)
+    var desc = parseFloat(n2.value)
+    
+    var valorpagar = preco - (preco * desc/ 100)
+    
+    result.innerHTML = `
+        <ul>
+          <li>Valor do produto: $<b>${preco}</b></li>
+          <li>Valor do desconto: <b>${desc}</b>%</li>
+          <li>Valor a pagar: $<b>${valorpagar}</b></li>
+        </ul>
+      `
+
+      }
+    
+    form.addEventListener('submit', onSubmit)
+  </script>
+</body>
+
+</html>
