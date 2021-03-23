@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 02</title>
+    <link rel="stylesheet" href="CSS.css">
+</head>
+<body>
+    <h1>Exercicio 02</h1>
+    <p>Crie outra página onde o usuário informará um número.<br>
+    Após validar se é número mesmo, exiba a tabuada deste número, ou seja, uma repetição multiplicando o número por todos os outros números de 0 a 10 e exibindo na tela.</p>
+    <form id ="form">
+        <input id="numero" type="number" placeholder="Digite um número">
+        <button>Enviar</button>
+    </form>
+
+    <div id="resultado"><ul></ul></div>
+
+    <script>
+        function main(event){
+            event.preventDefault()
+
+            let n1 = parseFloat(numero.value)
+
+            resultado.innerHTML = ''
+            
+            if (isNaN(n1)){
+                resultado.innerHTML = `<p style="color:red"> Digite um número válido.</p>`
+            } else {
+                for (let i = 0; i <= 10; i++){
+                    let mul = n1 * i
+                    resultado.innerHTML += `<li>${n1} x ${i} = ${mul}</li>`
+                }
+            }
+        }
+        form.addEventListener('submit', main)
+    </script>
+</body>
+</html>

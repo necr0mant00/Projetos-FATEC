@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 01</title>
+    <link rel="stylesheet" href="CSS.css">
+</head>
+<body>
+    <h1>Exercicio 01</h1>
+
+    <p> Crie uma página onde o usuário irá digitar dois números.<br>
+         Então use uma rotina de repetição para exibir todos os números existentes entre os dois números, de forma negativa, ou seja, contando do maior para o menor.<br>
+        Utilize estruturas condicionais conforme necessário para conseguir exibir corretamente do maior para o menor, independentemente de qual número o usuário digitou primeiro.</p>
+    <form id ="form">
+        <input id="inicial" type="number" placeholder="Digite um número">
+        <input id="final" type="number" placeholder="Digite outro numero">
+        <button>Enviar</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function main(event){
+            event.preventDefault()
+
+            let n1 = parseFloat(inicial.value)
+            let n2 = parseFloat(final.value)
+
+            resultado.innerHTML = ''
+            
+            if (n1 > n2){
+                for (let i = n1; n2 < i; --i){
+                    resultado.innerHTML += `${i}, `
+                }
+                resultado.innerHTML += n2
+            } else {
+                for (let i = n2; n1 < i; --i){
+                    resultado.innerHTML += `${i}, `
+                }
+                resultado.innerHTML += n1
+            }
+            
+        }
+        form.addEventListener('submit', main)
+    </script>
+</body>
+</html>
